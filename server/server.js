@@ -70,8 +70,12 @@ if (args.help) {
 
 function startServer() {
   var VideoServer = require('./video-server');
-  args.videoDir = path.join(process.cwd(), args.videoDir);
-  args.frameDir = path.join(process.cwd(), args.frameDir);
+  if (!args.videoDir.startsWith('/')) {
+    args.videoDir = path.join(process.cwd(), args.videoDir);
+  }  
+  if (!args.frameDir.startsWith('/')) {
+    args.frameDir = path.join(process.cwd(), args.frameDir);
+  }
   var server = new VideoServer(args);
 }
 
