@@ -24,4 +24,4 @@ EXPOSE 8080
 
 # Run the application.
 RUN mkdir /home/node/output
-CMD node start.js --allow-arbitrary-ffmpeg-arguments --video-dir=/home/node/output --frame-dir=/home/node/output
+CMD ["node", "start.js", "--allow-arbitrary-ffmpeg-arguments", "--video-dir=/home/node/output", "--frame-dir=/home/node/output"]
